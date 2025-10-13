@@ -7,4 +7,5 @@
 #         return count
 class Solution:
     def countOdds(self, low: int, high: int) -> int:
-        return ((high - low) // 2) + (1 if low % 2 != 0 or high % 2 != 0 else 0)
+        return (high+1)//2 - (low//2)
+        # return ((high - low) // 2) + (1 if low % 2 != 0 or high % 2 != 0 else 0)
