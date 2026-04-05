@@ -32,8 +32,6 @@ class Solution:
                 j+=1
                 k+=1
 
-
-
     def mergeSort(self, nums, l,r):
         #base case
         if l>=r:
@@ -48,12 +46,7 @@ class Solution:
 
         self.merge(nums,l,mid,r) 
  
-   
-  
-
-
     def sortArray(self, nums: List[int]) -> List[int]:
         self.mergeSort(nums, 0, len(nums)-1)
-
         return nums
         
