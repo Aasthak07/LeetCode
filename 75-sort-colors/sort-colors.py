@@ -1,18 +1,23 @@
-# Using Counting sort algorithm
-from typing import List
-
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
-        freq = [0] * 3  # since only 0,1,2
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        left = 0
+        right = len(nums)-1
+        i =0
 
-        # count frequencies
-        for num in nums:
-            freq[num] += 1
+        while i<=right:
+            if nums[i]==1:
+                i+=1
+            elif nums[i]==0:
+                nums[i], nums[left]= nums[left], nums[i]
+                i+=1
+                left+=1  
+            else:
+                nums[i], nums[right]= nums[right], nums[i]
+                right-=1
+                
 
-        # overwrite nums in-place
-        index = 0
-        for i in range(3):
-            while freq[i] > 0:
-                nums[index] = i
-                index += 1
-                freq[i] -= 1
+
+        
