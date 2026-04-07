@@ -1,12 +1,13 @@
 class Solution:
-    def sortArrayByParity(self, nums: List[int]) -> List[int]:
+    def sortArrayByParity(self, nums: list[int]) -> list[int]:
+        n = len(nums)
+        left = 0
+        right = 0
 
-        #using Binary (inplace)
-        start= 0
-        for i in range(len(nums)):
-            if nums[i]%2==0:
-                nums[start], nums[i] = nums[i], nums[start]
-                start+=1
-        return nums        
+        while right < n:
+            if nums[right] % 2 == 0:
+                nums[left], nums[right] = nums[right], nums[left]
+                left += 1
+            right += 1
 
-        
+        return nums
