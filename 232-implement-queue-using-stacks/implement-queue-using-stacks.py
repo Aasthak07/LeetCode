@@ -24,7 +24,7 @@ class MyQueue:
         return x
         
 
-    def peek(self) -> int:
+    def peek(self) -> int: #top ya front element
         return self.stack1[-1]
         
 
