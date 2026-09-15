@@ -1,25 +1,26 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
-        # s=s.strip()
-        # s=s.split()
-        # s.reverse()
-        # return " ".join(s)
-        s=s.strip()
-        s=s.split()
-        i=0
-        j=len(s)-1
+        words = []
+        word = ""
 
-        while i<j:
-            # s[i], s[j] = s[j], s[i]  # swap
-            temp=s[i]
-            s[i]=s[j]
-            s[j]=temp
-            i+=1
-            j-=1
+        # Extract words manually
+        for ch in s:
+            if ch != " ":
+                word += ch
+            else:
+                if word != "":
+                    words.append(word)
+                    word = ""
 
-        return " ".join(s)    
+        # Add last word
+        if word != "":
+            words.append(word)
 
-        
+        # Build answer in reverse order
+        ans = ""
+        for i in range(len(words) - 1, -1, -1):
+            ans += words[i]
+            if i != 0:
+                ans += " "
 
-    
-        
+        return ans
