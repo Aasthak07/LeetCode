@@ -3,28 +3,21 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-
 class Solution:
-    def mergeTwoLists(
-        self,
-        list1: Optional[ListNode],
-        list2: Optional[ListNode]
-    ) -> Optional[ListNode]:
+    def mergeTwoLists(self, head1: ListNode | None, head2: ListNode | None) -> ListNode | None: 
+
+        #base case
+        if head1 == None or head2 == None:
+            return head1 if head1 != None else head2
+
+        # case1 
+
+        if head1.val <= head2.val:
+            head1.next = self.mergeTwoLists(head1.next, head2)
+
+            return head1
+        else:
+            head2.next = self.mergeTwoLists(head1, head2.next)
+
+            return head2       
         
-        dummy = ListNode()
-        current = dummy
-
-        while list1 and list2:
-            if list1.val < list2.val:
-                current.next = list1
-                list1 = list1.next
-            else:
-                current.next = list2
-                list2 = list2.next
-
-            current = current.next
-
-        # Attach the remaining nodes
-        current.next = list1 if list1 else list2
-
-        return dummy.next
